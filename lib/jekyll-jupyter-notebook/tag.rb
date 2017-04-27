@@ -37,11 +37,11 @@ module JekyllJupyterNotebook
                notebook_path)
         html_path = Dir.glob("#{output}/*.html").first
         html = File.read(html_path)
-        html.gsub!(/\A.*?<\/title>/m, "")
-        html.gsub!(/<link.+?href="custom.css">/, "")
-        html.gsub!(/<\/head>/, "")
-        html.gsub!(/<body>/, "")
-        html.gsub!(/<\/body>.*\z/m, "")
+        html.sub!(/\A.*?<\/title>/m, "")
+        html.sub!(/<link.+?href="custom.css">/, "")
+        html.sub!(/<\/head>/, "")
+        html.sub!(/<body>/, "")
+        html.sub!(/<\/body>.*?\z/m, "")
         <<-HTML
 <div class="jupyter-notebook">#{html}</div>
         HTML

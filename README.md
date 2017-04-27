@@ -39,6 +39,14 @@ Put the following tag into the target text:
 {% jupyter_notebook sample.ipynb %}
 ```
 
+If you use kramdown as Markdown parser and get strange result, try to surround `{% jupyter_notebook ...%}` with `{::nomarkdown}` and `{:/nomarkdown}` like the following:
+
+```markdown
+{::nomarkdown}
+{% jupyter_notebook sample.ipynb %}
+{:/nomarkdown}
+```
+
 ## Authors
 
 * Kouhei Sutou \<kou@clear-code.com\>
