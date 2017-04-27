@@ -11,5 +11,5 @@
 # limitations under the License.
 
 module JekyllJupyterNotebook
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 end
