@@ -40,3 +40,11 @@ task :test do
 end
 
 task default: :test
+
+desc "Update site"
+task :site do
+  rm_rf("docs")
+  cd("example") do
+    sh("bundle", "exec", "jekyll", "build", "--destination", "../docs")
+  end
+end
