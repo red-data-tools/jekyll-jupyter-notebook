@@ -34,12 +34,12 @@ end
 Packnga::ReleaseTask.new(spec) do
 end
 
-desc "Run tests"
-task :test do
-  ruby("test/run-test.rb")
-end
+# desc "Run tests"
+# task :test do
+#   ruby("test/run-test.rb")
+# end
 
-task default: :test
+# task default: :test
 
 desc "Update site"
 task :site do
