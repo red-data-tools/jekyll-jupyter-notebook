@@ -26,8 +26,9 @@ module JekyllJupyterNotebook
     end
 
     def render(context)
+      dir = context["page"]["dir"] || File.dirname(context["page"]["path"])
       notebook_path = File.join(context["site"]["source"],
-                                context["page"]["dir"],
+                                dir,
                                 @notebook_path)
       Dir.mktmpdir do |output|
         system("jupyter",
