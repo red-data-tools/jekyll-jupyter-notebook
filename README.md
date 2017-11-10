@@ -10,16 +10,17 @@ Jekyll Jupyter Notebook plugin adds [Jupyter](http://jupyter.org/) Notebook supp
 
 ## Install
 
-Install Gem:
-
-```
-gem install jekyll-jupyter-notebook
-```
 
 Add the following line to your site's `Gemfile`:
 
 ```ruby
 gem "jekyll-jupyter-notebook"
+```
+
+To make the gem available:
+
+```
+bundle install
 ```
 
 Add the following line to your site's `_config.yml`:
@@ -28,6 +29,7 @@ Add the following line to your site's `_config.yml`:
 gems:
   - jekyll-jupyter-notebook
 ```
+
 
 ## Usage
 
