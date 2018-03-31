@@ -18,7 +18,7 @@ module JekyllJupyterNotebook
       ext == ".ipynb"
     end
 
-    def output_ext(_ext)
+    def output_ext(ext)
       ".html"
     end
 

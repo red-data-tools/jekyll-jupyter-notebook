@@ -13,4 +13,5 @@
 require "jekyll-jupyter-notebook/version"
 
 require "jekyll-jupyter-notebook/converter"
+require "jekyll-jupyter-notebook/generator"
 require "jekyll-jupyter-notebook/tag"

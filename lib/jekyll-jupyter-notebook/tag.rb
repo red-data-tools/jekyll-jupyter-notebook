@@ -26,27 +26,21 @@ module JekyllJupyterNotebook
     end
 
     def render(context)
-      dir = context["page"]["dir"] || File.dirname(context["page"]["path"])
-      notebook_path = File.join(context["site"]["source"],
-                                dir,
-                                @notebook_path)
-      Dir.mktmpdir do |output|
-        system("jupyter",
-               "nbconvert",
-               "--to", "html",
-               "--output-dir", output,
-               notebook_path)
-        html_path = Dir.glob("#{output}/*.html").first
-        html = File.read(html_path)
-        html.sub!(/\A.*?<\/title>/m, "")
-        html.sub!(/<link.+?href="custom.css">/, "")
-        html.sub!(/<\/head>/, "")
-        html.sub!(/<body>/, "")
-        html.sub!(/<\/body>.*?\z/m, "")
-        <<-HTML
-<div class="jupyter-notebook">#{html}</div>
-        HTML
-      end
+      notebook_html_path = "#{@notebook_path}.html"
+      <<-HTML
+<div
+  class="jupyter-notebook"
+  style="position: relative; width: 100%; margin: 0 auto;">
+  <div class="jupyter-notebook-iframe-container">
+    <iframe
+      src="#{CGI.escapeHTML(notebook_html_path)}"
+      style="position: absolute; top: 0; left: 0; border-style: none;"
+      width="100%"
+      height="100%"
+      onload="this.parentElement.style.paddingBottom = (this.contentWindow.document.documentElement.scrollHeight + 10) + 'px'"></iframe>
+  </div>
+</div>
+      HTML
     end
   end
 end
