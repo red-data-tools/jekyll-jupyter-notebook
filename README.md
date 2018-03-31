@@ -25,7 +25,7 @@ Run the following command line to make the gem available:
 Add the following line to your site's `_config.yml`:
 
 ```yaml
-gems:
+plugins:
   - jekyll-jupyter-notebook
 ```
 
