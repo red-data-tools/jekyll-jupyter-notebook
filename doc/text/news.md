@@ -1,5 +1,19 @@
 # News
 
+## 0.0.3 - 2018-03-31
+
+### Improvements
+
+  * Improved install document.
+    [GitHub#5][Patch by Jake VanCampen]
+
+  * Changed to use `iframe` instead of embedding `nbconvert`-ed HTML directory.
+    It required JavaScript.
+
+### Thanks
+
+  * Jake VanCampen
+
 ## 0.0.2 - 2017-09-03
 
 ### Improvements
