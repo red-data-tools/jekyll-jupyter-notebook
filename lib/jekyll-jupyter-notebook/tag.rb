@@ -30,7 +30,7 @@ module JekyllJupyterNotebook
     end
 
     def syntax_example
-      "{% #{@tag_name} filename.ipynb %}"
+      "{% #{@tag_name} filename.ipynb %} or {% #{@tag_name} notebook_path: filename.ipynb %}"
     end
 
     def render(context)
