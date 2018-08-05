@@ -18,7 +18,15 @@ module JekyllJupyterNotebook
 
     def initialize(tag_name, markup, tokens)
       super
-      @notebook_path = markup.strip
+      markup.scan(Liquid::TagAttributes) do |key, value|
+        if key == "notebook_path"
+          @renderUsingContext = true
+          @notebook_path = value.gsub(/^'|"/, '').gsub(/'|"$/, '')
+        end
+      end
+      if !@notebook_path
+        @notebook_path = markup.strip
+      end
     end
 
     def syntax_example
@@ -26,6 +34,9 @@ module JekyllJupyterNotebook
     end
 
     def render(context)
+      if @renderUsingContext
+        @notebook_path = context[@notebook_path]
+      end
       notebook_html_path = "#{@notebook_path}.html"
       <<-HTML
 <div
