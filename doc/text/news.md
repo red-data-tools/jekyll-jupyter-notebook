@@ -1,5 +1,19 @@
 # News
 
+## 0.0.4 - 2018-08-08
+
+### Improvements
+
+  * Added support for variable for notebook path. Now, notebook path
+    must be string literal such as `"sample.ipynb"` not
+    `sample.ipynb`. `sample.ipynb` is still supported for backward
+    compatibility but it's obsoleted.
+    [GitHub#7][Patch by Josh Hills]
+
+### Thanks
+
+  * Josh Hills
+
 ## 0.0.3 - 2018-03-31
 
 ### Improvements
