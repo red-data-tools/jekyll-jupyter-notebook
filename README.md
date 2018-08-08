@@ -42,14 +42,14 @@ Put a Jupyter Notebook (`sample.ipynb`) to the directory that has the target tex
 Put the following tag into the target text:
 
 ```markdown
-{% jupyter_notebook sample.ipynb %}
+{% jupyter_notebook "sample.ipynb" %}
 ```
 
 If you use kramdown as Markdown parser and get strange result, try to surround `{% jupyter_notebook ...%}` with `{::nomarkdown}` and `{:/nomarkdown}` like the following:
 
 ```markdown
 {::nomarkdown}
-{% jupyter_notebook sample.ipynb %}
+{% jupyter_notebook "sample.ipynb" %}
 {:/nomarkdown}
 ```
 
