@@ -7,7 +7,7 @@ title: Top
 
 Here is a Jupyter Notebook:
 
-{% jupyter_notebook python.ipynb %}
+{% jupyter_notebook "python.ipynb" %}
 
 ### Raw rendered pages
 
@@ -16,3 +16,9 @@ Here is a Jupyter Notebook:
 ### Other kernels
 
   * [IRuby kernel](ruby/)
+
+### Blog posts
+
+{% for post in site.posts %}
+  * [{{ post.title }} ({{ post.date | date: "%Y-%m-%d" }})]({{ post.url }})
+{% endfor %}
