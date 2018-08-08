@@ -16,28 +16,24 @@ module JekyllJupyterNotebook
   class Tag < Liquid::Tag
     Liquid::Template.register_tag("jupyter_notebook", self)
 
-    def initialize(tag_name, markup, tokens)
+    def initialize(tag_name, markup, parse_context)
       super
-      markup.scan(Liquid::TagAttributes) do |key, value|
-        if key == "notebook_path"
-          @renderUsingContext = true
-          @notebook_path = value.gsub(/^'|"/, '').gsub(/'|"$/, '')
-        end
-      end
-      if !@notebook_path
-        @notebook_path = markup.strip
-      end
     end
 
     def syntax_example
-      "{% #{@tag_name} filename.ipynb %} or {% #{@tag_name} notebook_path: filename.ipynb %}"
+      "{% #{@tag_name} \"filename.ipynb\" %}"
     end
 
     def render(context)
-      if @renderUsingContext
-        @notebook_path = context[@notebook_path]
+      variable = Liquid::Variable.new(@markup, @parse_context)
+      notebook_path = variable.render(context)
+      if notebook_path.nil?
+        Jekyll.logger.warn("Warning:",
+                           "Jupyter Notebook path be string literal: " +
+                           "<#{@markup.strip.inspect}>")
+        notebook_path = @markup.strip # For backward compatibility
       end
-      notebook_html_path = "#{@notebook_path}.html"
+      notebook_html_path = "#{notebook_path}.html"
       <<-HTML
 <div
   class="jupyter-notebook"
