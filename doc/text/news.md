@@ -1,5 +1,16 @@
 # News
 
+## 0.0.5 - 2022-08-20
+
+### Improvements
+
+  * Added support for collection.
+    [GitHub#8][Reported by Jeremy Lloyd Conlin]
+
+### Thanks
+
+  * Jeremy Lloyd Conlin
+
 ## 0.0.4 - 2018-08-08
 
 ### Improvements
