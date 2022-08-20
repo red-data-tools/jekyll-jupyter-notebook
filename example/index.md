@@ -22,3 +22,7 @@ Here is a Jupyter Notebook:
 {% for post in site.posts %}
   * [{{ post.title }} ({{ post.date | date: "%Y-%m-%d" }})]({{ post.url }})
 {% endfor %}
+
+### Collection: members
+
+  * [Alice]({% link _members/alice.md %})
