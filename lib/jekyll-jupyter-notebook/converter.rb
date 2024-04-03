@@ -50,6 +50,7 @@ module JekyllJupyterNotebook
         pid = spawn("jupyter",
                     "nbconvert",
                     "--to", "html",
+                    "--no-prompt",
                     "--stdout",
                     notebook.path,
                     :out => output)
