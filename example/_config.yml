@@ -19,4 +19,4 @@ plugins:
 collections:
   members:
     output: true
-    permalink: /members/:path
+    permalink: /members/:path.html

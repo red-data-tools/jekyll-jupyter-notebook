@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jekyll Jupyter Notebook plugin example - Ruby</title>
+    <title>Jekyll Jupyter Notebook plugin example - Blog title</title>
   </head>
   <body>
     <header>
@@ -11,16 +11,33 @@
         <a href="/">Jekyll Jupyter Notebook plugin example</a>
       </h1>
     </header>
-    <h2 id="iruby-kernel">IRuby kernel</h2>
+    <h2 id="blog-title">Blog title</h2>
 
-<p>Here is a Jupyter Notebook with IRuby kernel:</p>
+<p>Here is a Jupyter Notebook on Blog using a string literal:</p>
 
 <div
   class="jupyter-notebook"
   style="position: relative; width: 100%; margin: 0 auto;">
   <div class="jupyter-notebook-iframe-container">
     <iframe
-      src="ruby.ipynb.html"
+      src="/notebooks/blog.ipynb.html"
+      style="position: absolute; top: 0; left: 0; border-style: none;"
+      width="100%"
+      height="100%"
+      onload="this.parentElement.style.paddingBottom = (this.contentWindow.document.documentElement.scrollHeight + 10) + 'px'"></iframe>
+  </div>
+</div>
+
+
+<p>Here is the same Jupyter Notebook on Blog using a variable:</p>
+
+
+<div
+  class="jupyter-notebook"
+  style="position: relative; width: 100%; margin: 0 auto;">
+  <div class="jupyter-notebook-iframe-container">
+    <iframe
+      src="/notebooks/blog.ipynb.html"
       style="position: absolute; top: 0; left: 0; border-style: none;"
       width="100%"
       height="100%"
