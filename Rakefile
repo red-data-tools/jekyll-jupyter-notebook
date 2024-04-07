@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require "rubygems"
 require "bundler/gem_helper"
-require "packnga"
 
 base_dir = File.join(File.dirname(__FILE__))
 
@@ -25,14 +23,6 @@ end
 
 helper.install
 spec = helper.gemspec
-
-Packnga::DocumentTask.new(spec) do |task|
-  task.original_language = "en"
-  task.translate_language = "ja"
-end
-
-Packnga::ReleaseTask.new(spec) do
-end
 
 # desc "Run tests"
 # task :test do
