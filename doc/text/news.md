@@ -1,5 +1,17 @@
 # News
 
+## 0.0.6 - 2024-04-08
+
+### Improvements
+
+  * Added `prompt` option that controls whether `In [N]`/`Out[N]` prompts are shown or not.
+    * GH-9
+    * Reported by Julian Hatzky
+
+### Thanks
+
+  * Julian Hatzky
+
 ## 0.0.5 - 2022-08-20
 
 ### Improvements
