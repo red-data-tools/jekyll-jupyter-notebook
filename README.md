@@ -53,6 +53,33 @@ If you use kramdown as Markdown parser and get strange result, try to surround `
 {:/nomarkdown}
 ```
 
+## Configurations
+
+You can customize `.ipynb` to `.html` conversion by `jupyter_notebook` in `_config.yml`:
+
+```yaml
+jupyter_notebook:
+  # ...
+```
+
+### `prompt`
+
+You can control whether a converted `.html` includes `In [N]`/`Out[N]` prompts or not by `prompt`:
+
+```yaml
+jupyter_notebook:
+  prompt: true
+```
+
+The default value is `true`. It means that `In [N]`/`Out[N]` are shown.
+
+You can remove them by using `false`:
+
+```yaml
+jupyter_notebook:
+  prompt: false
+```
+
 ## Authors
 
 * Kouhei Sutou \<kou@clear-code.com\>

@@ -25,7 +25,7 @@ module JekyllJupyterNotebook
     def convert(content)
       config = @config["jupyter_notebook"] || {}
 
-      html = convert_notebook(content)
+      html = convert_notebook(content, config)
       html.sub!(/<link.+?href="custom.css">/, "")
       case config["content"] || "html"
       when "html"
@@ -42,17 +42,20 @@ module JekyllJupyterNotebook
     end
 
     private
-    def convert_notebook(content)
+    def convert_notebook(content, config)
       notebook = Tempfile.new(["jekyll-jupyter-notebook", ".ipynb"])
       notebook.print(content)
       notebook.close
       IO.pipe do |input, output|
-        pid = spawn("jupyter",
-                    "nbconvert",
-                    "--to", "html",
-                    "--stdout",
-                    notebook.path,
-                    :out => output)
+        command_line = [
+          "jupyter",
+          "nbconvert",
+          "--to", "html",
+          "--stdout",
+        ]
+        command_line << "--no-prompt" unless config.fetch("prompt", true)
+        command_line << notebook.path
+        pid = spawn(*command_line, out: output)
         begin
           output.close
           html = nil
