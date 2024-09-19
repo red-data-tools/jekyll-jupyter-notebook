@@ -82,7 +82,7 @@ jupyter_notebook:
 
 ### `input`
 
-Similar to how `prompt` works, you can also control whether a converted `.html` includes code inputs or not by using `inputs`:
+Similar to how `prompt` works, you can also control whether a converted `.html` includes code inputs or not by using `input`:
 
 ```yaml
 jupyter_notebook:
