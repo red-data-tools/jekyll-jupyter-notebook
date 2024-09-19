@@ -53,8 +53,8 @@ module JekyllJupyterNotebook
           "--to", "html",
           "--stdout",
         ]
-        command_line << "--no-prompt" unless config.fetch("prompt", true)
         command_line << "--no-input" unless config.fetch("input", true)
+        command_line << "--no-prompt" unless config.fetch("prompt", true)
         command_line << notebook.path
         pid = spawn(*command_line, out: output)
         begin
