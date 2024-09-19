@@ -80,6 +80,24 @@ jupyter_notebook:
   prompt: false
 ```
 
+### `input`
+
+Similar to how `prompt` works, you can also control whether a converted `.html` includes code inputs or not by using `input`:
+
+```yaml
+jupyter_notebook:
+  input: true
+```
+
+The default value is `true`. It means that input code blocks are shown.
+
+You can remove them by using `false`:
+
+```yaml
+jupyter_notebook:
+  input: false
+```
+
 ## Authors
 
 * Kouhei Sutou \<kou@clear-code.com\>
